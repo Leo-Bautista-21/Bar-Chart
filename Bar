@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+
+# Hypothetical data extracted from the official results:
+# County: (2015 Votes, 2019 Votes)
+data = {
+    'Jefferson': (186,000, 220,000),
+    'Fayette': (90,000, 110,000),
+    'Warren': (35,000, 40,000)
+}
+
+counties = list(data.keys())
+votes_2015 = [val[0] for val in data.values()]
+votes_2019 = [val[1] for val in data.values()]
+
+x = range(len(counties))
+plt.bar([p-0.2 for p in x], votes_2015, width=0.4, label='2015')
+plt.bar([p+0.2 for p in x], votes_2019, width=0.4, label='2019')
+plt.xticks(x, counties)
+plt.ylabel('Total Votes')
+plt.title('Voter Turnout in Select Kentucky Counties (2015 vs 2019)')
+plt.legend()
+plt.show()
